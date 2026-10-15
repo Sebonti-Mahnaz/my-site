@@ -16,10 +16,10 @@
 
 export const profile = {
   /** Your name as you want it to appear everywhere. */
-  displayName: "Your Name",
+  displayName: "Sebonti Mahnaz",
 
   /** Your UD email — must match the one you signed into the course with. */
-  email: "you@udel.edu",
+  email: "sebonti@udel.edu",
 
   /** Where you're from. Shows on your roster card and /about. */
   hometown: "Newark, Delaware",
@@ -29,20 +29,20 @@ export const profile = {
    * how classmates find something to say hello about.
    */
   funFacts: [
-    "I once assembled IKEA furniture without leftover screws.",
-    "I can name every U.S. state capital in under two minutes.",
+    "I have a cat, which means I'm technically living in someone else's house.",
+    "I love adventures and building things, whether it's LEGO sets, miniature houses, furniture, or something completely new.",
   ],
 
   /** One decision you're proud of, in a sentence. */
   decisionImProudOf:
-    "I chose to take a gap semester to work retail; it taught me more about customers than any textbook.",
+    "I'm genuinely terrified of heights, but I decided not to let that fear hold me back, whether it's going ziplining, parasailing, or taking chances on things I've never tried before.",
 
   /**
    * Your photo. Replace public/photo.svg with a real photo of you
    * (e.g. put photo.jpg in the public/ folder and change this to "/photo.jpg").
    * It must be a real image file: the grader fetches it and checks.
    */
-  photoPath: "/photo.svg",
+  photoPath: "/photo.jpg",
 
   /**
    * Who can see your roster card:
