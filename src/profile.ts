@@ -52,13 +52,13 @@ export const profile = {
   rosterVisibility: "class" as "class" | "professor-only",
 
   /** A one-line tagline for your home page. Make it yours. */
-  tagline: "Building a portfolio of decision services, one lane at a time.",
+  tagline: "Part analyst, part problem-solver, always curious.",
 
   /**
    * A short bio for your home page: two or three sentences, written like
    * a person, not a resume. What are you studying? What do you care about?
    */
-  bio: "I'm a business student at the University of Delaware learning to make good decisions at any scale. This site is my working portfolio: every course challenge deploys here as a live service.",
+  bio: "I'm a Business Analytics and Information Management student at the University of Delaware who enjoys solving problems and finding the stories hidden in data. I work with Python, SQL, Power BI, Tableau, and other technologies to turn complex information into meaningful insights. This portfolio is a collection of my projects, skills, and everything I've learned along the way.",
 
   /**
    * Your GitHub repo URL. The course platform reads this from /api/health to
