@@ -54,7 +54,10 @@ export default function HomePage() {
         </p>
         <ul className="mt-6 grid gap-4 sm:grid-cols-2">
           {SERVICES.map((s) => (
-            <li key={s.lane} className="rounded-xl border border-line bg-surface p-5">
+            <li
+              key={s.lane}
+              className="rounded-xl border border-line bg-surface p-5 shadow-[0_6px_18px_-4px_color-mix(in_srgb,var(--ink)_18%,transparent)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_14px_28px_-6px_color-mix(in_srgb,var(--ink)_24%,transparent)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            >
               <p className="text-xs font-semibold uppercase tracking-widest text-muted">
                 Lane {s.lane}
               </p>
