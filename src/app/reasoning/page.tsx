@@ -1,10 +1,3 @@
-import { ComingSoon } from "@/components/ComingSoon";
-import { loadLatest } from "@/lib/reasoning-store";
-import { TwoWayTable } from "@/components/reasoning/TwoWayTable";
-import { BernoulliFourViews } from "@/components/reasoning/BernoulliFourViews";
-
-export const metadata = { title: "Reasoning & Uncertainty Service" };
-
 /**
  * ── Challenge 2, step 5: the face ─────────────────────────────────────────
  * Why this page exists: an API decides, a page justifies. The grader reads
@@ -21,14 +14,22 @@ export const metadata = { title: "Reasoning & Uncertainty Service" };
 // Freshness contract: without this line, Next.js may serve a cached copy of
 // this page, and the grader would see stale numbers seconds after your API
 // answered. force-dynamic re-renders the page on every request.
+import { ComingSoon } from "@/components/ComingSoon";
+import { loadLatest } from "@/lib/reasoning-store";
+import { TwoWayTable } from "@/components/reasoning/TwoWayTable";
+import { BernoulliFourViews } from "@/components/reasoning/BernoulliFourViews";
+
+export const metadata = { title: "Reasoning & Uncertainty Service" };
+
+// Freshness contract: without this line, Next.js may serve a cached copy of
+// this page, and the grader would see stale numbers seconds after your API
+// answered. force-dynamic re-renders the page on every request.
 export const dynamic = "force-dynamic";
 
 export default async function ReasoningPage() {
-  // The same rows your /api/reasoning/decide wrote via saveLatest().
   const { syllogism, plausibility, bernoulli } = await loadLatest();
 
-  // Until the first probe arrives (or before Supabase is wired up), the
-  // portfolio card keeps its honest placeholder.
+  // Until the first probe arrives, keep the honest placeholder.
   if (!syllogism && !plausibility && !bernoulli) {
     return (
       <ComingSoon
@@ -47,11 +48,10 @@ export default async function ReasoningPage() {
       <h1 className="mt-3 text-4xl font-bold">My Reasoning &amp; Uncertainty Service</h1>
       {/* TODO(yours): one sentence, your words, on what this service does. */}
       <p className="mt-4 max-w-prose text-muted">
-        Below is the most recent problem my API solved, for each of the three problem types it
-        speaks. Every number on this page comes from the same live data my API answered with.
+        I built this service to check logical arguments, calculate probabilities,
+        and show how different outcomes are reached using my API.
       </p>
 
-      {/* ── Latest syllogism audit ─────────────────────────────────────── */}
       <section className="mt-12">
         <h2 className="text-2xl font-bold">Latest syllogism audit</h2>
         {syllogism ? (
@@ -75,11 +75,10 @@ export default async function ReasoningPage() {
             </p>
             {/* TODO(yours): rewrite this explanation so it sounds like you (Station 2.1). */}
             <p className="mt-2 max-w-prose text-sm text-muted">
-              How the service decided: it ignores the story and reads only the shape of
-              the argument. The rule promises that the if-part brings the then-part, so
-              only two observations prove anything: the if-part being true, or the
-              then-part being false. Every other shape proves nothing, no matter how
-              believable the story feels.
+              Here, I'm checking if the conclusion actually follows from the
+              information given. Just because something sounds right doesn't
+              mean the logic is correct. The structure of the argument is
+              what matters.
             </p>
           </div>
         ) : (
@@ -87,7 +86,6 @@ export default async function ReasoningPage() {
         )}
       </section>
 
-      {/* ── Latest plausibility update ─────────────────────────────────── */}
       <section className="mt-12">
         <h2 className="text-2xl font-bold">Latest plausibility update</h2>
         {plausibility ? (
@@ -109,13 +107,16 @@ export default async function ReasoningPage() {
             </p>
             {/* TODO(yours): one sentence a manager could read, e.g. what this
                 posterior means for the flagged case (Station 2.3). */}
+            <p className="mt-2 max-w-prose text-sm text-muted">
+              This shows how likely a flagged case is to be real after
+              considering the original probability and possible false alarms.
+            </p>    
           </div>
         ) : (
           <p className="mt-3 text-muted">No plausibility probe yet.</p>
         )}
       </section>
 
-      {/* ── Latest Bernoulli read ──────────────────────────────────────── */}
       <section className="mt-12">
         <h2 className="text-2xl font-bold">Latest Bernoulli read: four views</h2>
         {bernoulli ? (
@@ -141,6 +142,10 @@ export default async function ReasoningPage() {
             </p>
             {/* TODO(yours): one sentence on what the expected payoff does and
                 does not promise (Station 2.4). */}
+            <p className="mt-2 max-w-prose text-sm text-muted">
+              The expected payoff shows what we might gain or lose on average
+              over many attempts, but it doesn't guarantee the same result every time.
+            </p>
           </div>
         ) : (
           <p className="mt-3 text-muted">No Bernoulli probe yet.</p>
