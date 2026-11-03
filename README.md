@@ -28,7 +28,7 @@ to touch (yet):
    npm run dev
    ```
 
-   Open http://localhost:3000. The site works immediately (the guestbook
+   Open http://localhost:3000/api/health. The site works immediately (the guestbook
    nudges you until the database step below).
 
 2. **Make it yours.** Open `src/profile.ts`, replace every placeholder, and
